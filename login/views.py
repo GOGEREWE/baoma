@@ -44,6 +44,7 @@ def login(request):
             return JsonResponse(result,safe=False)
     else:
         result['msg']='The username or password is not entered.'
+        return JsonResponse(result,safe=False)
 
 """邮箱发送验证码"""
 def verification(request):
@@ -63,12 +64,13 @@ def registered(request):
     user_vcode = request.POST.get('vcode')
     result = {'code':0,'msg':'','data':''}
     if this_vcode == user_vcode:
-
+        
         """obsolete
         users.username = request.POST.get('name')
         users.passsword = request.POST.get('password')
         users.email = request.POST.get('email')
         """
+        
         result['code'] = 1
         users.objects.create_user(request.POST.get('email'),
                                   request.POST.get('name'),

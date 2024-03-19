@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.base_user import AbstractBaseUser,BaseUserManager
+from django.utils import timezone
 
 # Create your models here.
 
@@ -27,7 +28,7 @@ class users(AbstractBaseUser):
 
     is_anonymous = models.BooleanField(default = False)
     is_authenticated = models.BooleanField(default = False)
-    date_of_birth = models.DateField(default='0000-00-00')
+    date_of_birth = models.DateField(default=timezone.now())
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     username = models.CharField(max_length = 255,unique=True)  #用户名
@@ -43,7 +44,7 @@ class users(AbstractBaseUser):
         ordering = ('-username',)
 
     def __str__(self):
-        return self.users
+        return self.email
     
     def has_perm(self, perm, obj=None):
         "Does the user have a specific permission?"
