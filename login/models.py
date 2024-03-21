@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.base_user import AbstractBaseUser,BaseUserManager
+#from django.contrib.auth.backends import ModelBackend  erro：添加后会覆盖login_users
 from django.utils import timezone
 
 # Create your models here.
@@ -23,6 +24,8 @@ class UserManager(BaseUserManager):
         return user
 
 # users数据
+
+
 
 class users(AbstractBaseUser):
 

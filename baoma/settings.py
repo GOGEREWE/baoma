@@ -25,9 +25,23 @@ SECRET_KEY = "django-insecure--(m3f83rcnee69c*e=ii*q8o9mo20lo@87+n32_juy(_d!y^1r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+APPEND_SLASH = False
+
 ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'login.users'
+
+
+"""邮箱配置"""
+EMAIL_HOST = "smtp.qq.com"
+EMAIL_HOST_USER = "20772026@qq.com"
+EMAIL_HOST_PASSWORD = "bpiaiiezbswacagi"
+EMAIL_PORT = 25
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+
+"""用户验证后端"""
+#AUTHENTICATION_BACKENDS = ['login.models.MyBackend']
 
 # Application definition
 
